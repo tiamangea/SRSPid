@@ -203,14 +203,14 @@
                         <div class="flex items-center gap-2"><i class="far fa-clock text-blue-600 text-lg"></i><span id="current-time">10:24 WIB</span></div>
                     </div>
                     <div class="flex items-center gap-3">
-                        <button class="relative p-2 text-gray-500 hover:text-blue-600 transition-colors">
+                        <button class="relative p-2 text-gray-500 hover:text-blue-600 transition-colors hidden sm:block">
                             <i class="fas fa-bell text-xl"></i>
                             <span class="absolute top-1 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
                         </button>
                         <button class="p-2 text-gray-500 hover:text-blue-600 transition-colors hidden sm:block">
                             <i class="fas fa-moon text-xl"></i>
                         </button>
-                        <div class="flex items-center gap-2 cursor-pointer border-l border-gray-200 pl-4">
+                        <div class="flex items-center gap-2 cursor-pointer sm:border-l sm:border-gray-200 sm:pl-4">
                             <img src="https://ui-avatars.com/api/?name=Satlantas&background=E2E8F0&color=1e293b&rounded=true" alt="Satlantas" class="w-8 h-8 rounded-full border border-gray-300">
                             <span class="text-sm font-bold text-gray-700 hidden sm:block">Satlantas</span>
                             <i class="fas fa-chevron-down text-xs text-gray-400 hidden sm:block"></i>
@@ -225,6 +225,34 @@
                 <!-- VIEW: BERANDA (Dashboard) -->
                 <div id="view-beranda" class="view-section fade-in max-w-[1600px] mx-auto space-y-4">
                     
+                    <!-- MOBILE ONLY: Grid Menu (Mirip Gambar 2 "Beranda Mobile") -->
+                    <div class="grid grid-cols-2 gap-3 md:hidden mb-2">
+                        <button data-target="peta" class="mobile-nav-btn flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100 gap-2 active:scale-95 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-map-marked-alt"></i></div>
+                            <span class="text-xs font-bold text-gray-800">Peta Risiko</span>
+                        </button>
+                        <button data-target="prediksi" class="mobile-nav-btn flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100 gap-2 active:scale-95 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-chart-line"></i></div>
+                            <span class="text-xs font-bold text-gray-800">Prediksi</span>
+                        </button>
+                        <button data-target="rekomendasi" class="mobile-nav-btn flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100 gap-2 active:scale-95 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-clipboard-check"></i></div>
+                            <span class="text-xs font-bold text-gray-800">Rekomendasi</span>
+                        </button>
+                        <button data-target="patroli" class="mobile-nav-btn flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100 gap-2 active:scale-95 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-shield-alt"></i></div>
+                            <span class="text-xs font-bold text-gray-800">Patroli</span>
+                        </button>
+                        <button data-target="edukasi" class="mobile-nav-btn flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100 gap-2 active:scale-95 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-graduation-cap"></i></div>
+                            <span class="text-xs font-bold text-gray-800">Edukasi</span>
+                        </button>
+                        <button data-target="laporan" class="mobile-nav-btn flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100 gap-2 active:scale-95 transition-transform">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-file-alt"></i></div>
+                            <span class="text-xs font-bold text-gray-800">Laporan</span>
+                        </button>
+                    </div>
+
                     <!-- Welcome Banner -->
                     <div class="bg-blue-600 rounded-2xl p-6 lg:p-8 text-white relative overflow-hidden shadow-md flex items-center justify-between" style="background: linear-gradient(100deg, #1e3a8a 0%, #2563eb 50%, #60a5fa 100%);">
                         <!-- Background glow effect -->
@@ -724,9 +752,31 @@
                     </div>
                 </div>
 
-                <!-- Bottom spacing -->
-                <div class="h-8"></div>
+                <!-- Bottom spacing - Diperbesar agar tidak tertutup menu navigasi bawah di HP -->
+                <div class="h-24 md:h-8"></div>
             </div>
+
+            <!-- MOBILE ONLY: Bottom Navigation Bar -->
+            <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center h-[70px] z-50 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+                <button data-target="beranda" class="mobile-nav-btn bottom-bar-btn flex flex-col items-center justify-center w-full h-full text-blue-600">
+                    <i class="fas fa-home text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold">Beranda</span>
+                </button>
+                <button data-target="peta" class="mobile-nav-btn bottom-bar-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-map-marked-alt text-xl mb-1"></i>
+                    <span class="text-[10px] font-medium">Peta</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-blue-600 transition-colors relative">
+                    <i class="fas fa-bell text-xl mb-1"></i>
+                    <span class="text-[10px] font-medium">Notifikasi</span>
+                    <span class="absolute top-2 right-6 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-user text-xl mb-1"></i>
+                    <span class="text-[10px] font-medium">Profil</span>
+                </button>
+            </nav>
+
         </main>
     </div>
 
@@ -750,6 +800,7 @@
             }
         }
 
+        // DESKTOP NAVIGATION
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('data-target');
@@ -757,7 +808,7 @@
                 
                 e.preventDefault();
 
-                // 1. Update Active State
+                // 1. Update Active State untuk Desktop Sidebar
                 document.querySelectorAll('.nav-item').forEach(nav => {
                     nav.classList.remove('bg-[#1E40AF]', 'text-white', 'shadow-sm');
                     nav.classList.add('hover:bg-white/5', 'hover:text-white');
@@ -766,26 +817,59 @@
                 this.classList.add('bg-[#1E40AF]', 'text-white', 'shadow-sm');
                 
                 // 2. Switch View
-                document.querySelectorAll('.view-section').forEach(view => {
-                    view.classList.add('hidden');
-                });
-                
-                const targetView = document.getElementById('view-' + targetId);
-                // Fallback ke beranda jika halaman yang diklik belum ada (misal: pengaturan)
-                if(targetView) {
-                    targetView.classList.remove('hidden');
-                } else {
-                    document.getElementById('view-beranda').classList.remove('hidden');
-                }
-
-                // 3. Fix map rendering bug
-                if (targetId === 'peta' && mapFullInstance) {
-                    setTimeout(() => { mapFullInstance.invalidateSize(); }, 200);
-                }
+                switchView(targetId);
 
                 if (window.innerWidth < 768) toggleSidebar();
             });
         });
+
+        // MOBILE NAVIGATION BAR & GRID
+        document.querySelectorAll('.mobile-nav-btn').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('data-target');
+                if (!targetId) return; 
+                
+                e.preventDefault();
+
+                // Update styling khusus jika yang ditekan adalah tombol navigasi bawah
+                if (this.classList.contains('bottom-bar-btn')) {
+                    document.querySelectorAll('.bottom-bar-btn').forEach(btn => {
+                        btn.classList.remove('text-blue-600');
+                        btn.classList.add('text-gray-400');
+                        btn.querySelector('span').classList.replace('font-bold', 'font-medium');
+                    });
+                    this.classList.remove('text-gray-400');
+                    this.classList.add('text-blue-600');
+                    this.querySelector('span').classList.replace('font-medium', 'font-bold');
+                }
+
+                // Switch View
+                switchView(targetId);
+                
+                // Gulir kembali ke atas otomatis saat di mobile
+                window.scrollTo(0,0);
+            });
+        });
+
+        // Fungsi bantuan untuk mengganti layar (SPA)
+        function switchView(targetId) {
+            document.querySelectorAll('.view-section').forEach(view => {
+                view.classList.add('hidden');
+            });
+            
+            const targetView = document.getElementById('view-' + targetId);
+            if(targetView) {
+                targetView.classList.remove('hidden');
+            } else {
+                // Fallback ke beranda jika halaman belum dibuat
+                document.getElementById('view-beranda').classList.remove('hidden');
+            }
+
+            // Fix map rendering bug saat tab peta ditekan
+            if (targetId === 'peta' && mapFullInstance) {
+                setTimeout(() => { mapFullInstance.invalidateSize(); }, 200);
+            }
+        }
 
         // --- Clock Logic ---
         function updateDateTime() {
